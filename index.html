@@ -173,6 +173,10 @@ h2{font-family:var(--f-display);font-weight:900;font-stretch:72%;text-transform:
 .card p{margin:0;color:var(--muted);font-size:15px}
 .card .stack{font-family:var(--f-mono);font-size:12px;color:var(--ink-2);margin-top:auto;padding-top:8px}
 .card.wide .shot img{aspect-ratio:16/9}
+a.card{color:var(--ink);transition:border-color .2s}
+a.card:hover{text-decoration:none;border-color:var(--ink)}
+a.card .go{color:var(--accent);font-size:14.5px}
+.card .tags span.live{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
 code.cmd{display:block;font-family:var(--f-mono);font-size:12.5px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:var(--ink);overflow-x:auto;white-space:nowrap}
 @media (max-width:900px){.builds{grid-template-columns:repeat(2,minmax(0,1fr))}.card.wide{grid-column:span 2;grid-template-columns:1fr}}
 @media (max-width:560px){.builds{grid-template-columns:1fr}.card.wide{grid-column:span 1}}
@@ -195,7 +199,8 @@ code.cmd{display:block;font-family:var(--f-mono);font-size:12.5px;background:var
 .book p.series{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:-4px}
 .spine.alt span{font-size:22px}
 @media (max-width:820px){.books{grid-template-columns:1fr}}
-@media (max-width:420px){.book{grid-template-columns:88px minmax(0,1fr);gap:16px}.spine span{font-size:16px}}
+.book,.spine{min-width:0}.spine{overflow:hidden;align-self:start;width:100%}.spine small{overflow-wrap:anywhere}
+@media (max-width:420px){.book{grid-template-columns:88px minmax(0,1fr);gap:16px}.spine span,.spine.alt span{font-size:16px}}
 
 /* Skills */
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin-top:32px}
@@ -262,7 +267,7 @@ footer .wrap{padding-block:56px 40px}
       </div>
       <p class="now"><span class="dot" aria-hidden="true"></span><span>Leading SEO for 18 clients · building Mimir and KineScale · EPGC in AI Products at IIT Kharagpur</span></p>
       <h1>Content that ranks.<span class="dim">Products that ship.</span></h1>
-      <p class="lede">I work where SEO, content strategy and AI meet. As <b>Manager, SEO (Content)</b> at <b>#ARM Worldwide</b> I lead search and content for 18 clients across fintech, insurance, D2C, ed-tech and media, winning Page 1 rankings and AI Overview placements while tracking brand citations across AI answer engines. Outside work I founded <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales Media</a> and build AI products like <a href="https://mimir.terratalesmedia.world/" target="_blank" rel="noopener">Mimir</a>, <a href="#builds">KineScale</a>, <a href="https://github.com/RedZero13/TrueTap-Keyboard" target="_blank" rel="noopener">TrueTap Keyboard</a> and the mythology brawler <a href="#godsmacked">Godsmacked</a>.</p>
+      <p class="lede">I work where SEO, content strategy and AI meet. As <b>Manager, SEO (Content)</b> at <b>#ARM Worldwide</b> I lead search and content for 18 clients across fintech, insurance, D2C, ed-tech and media, winning Page 1 rankings and AI Overview placements while tracking brand citations across AI answer engines. Outside work I founded <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales Media</a> and build AI products like <a href="https://mimir.terratalesmedia.world/" target="_blank" rel="noopener">Mimir</a>, <a href="https://quillmark.terratalesmedia.world/" target="_blank" rel="noopener">Quillmark</a>, <a href="https://talsted.terratalesmedia.world/" target="_blank" rel="noopener">Talsted</a>, <a href="#builds">KineScale</a> and the mythology brawler <a href="https://terratalesmedia.world/samsara/godsmacked/#play" target="_blank" rel="noopener">Godsmacked</a>.</p>
       <div class="btns">
         <a class="btn solid" href="Piyush_Banerjee_Resume.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download CV</a>
@@ -410,10 +415,10 @@ footer .wrap{padding-block:56px 40px}
 
   <!-- VENTURES -->
   <section class="block" id="ventures">
-    <div class="sec-head"><h2>Platforms I'm building</h2><span class="mono">Terratales Media · 3 live · 1 game</span></div>
+    <div class="sec-head"><h2>Platforms I'm building</h2><span class="mono">Terratales Media · 4 live · 1 game</span></div>
     <div class="venture-intro">
       <div>
-        <p class="sec-intro" style="margin:0">Terratales is the media, entertainment and story-technology house I founded. Its tagline is "Stories rooted in the earth, branched out to every realm of the world." Each realm is a business line; the products below are the ones already live.</p>
+        <p class="sec-intro" style="margin:0">Terratales is the media, entertainment and story-technology house I founded. Its tagline is "Stories rooted in the earth, branched out to every realm of the world." Each realm is a business line; the products below are live or playable today.</p>
         <div class="realms">
           <span class="chip">Cinema</span><span class="chip">Music &amp; Sound</span><span class="chip">OTT &amp; Streaming</span><span class="chip">Events &amp; Celebrity</span><span class="chip">Anime &amp; Manga</span><span class="chip">Publishing</span><span class="chip on">The Akashic Records</span>
         </div>
@@ -433,6 +438,22 @@ footer .wrap{padding-block:56px 40px}
     </article>
 
     <article class="feature flip">
+      <a class="shot" href="https://quillmark.terratalesmedia.world/" target="_blank" rel="noopener"><img src="images/quillmark.jpg" alt="Quillmark home page: Write it. Check it. Mark it." loading="lazy" width="1280" height="800"></a>
+      <div>
+        <span class="tag">Live · Free</span>
+        <h3>Quillmark</h3>
+        <p class="desc">A writer's desk of free tools: an AI detector that scores every sentence, an AI humanizer with eight tones, a summarizer, proofreading, citations, a screenplay and manuscript studio, and image and PDF tools. Everything runs in the browser, with no uploads and no accounts.</p>
+        <div class="metric"><div class="big"><span class="hl">71</span></div><div class="mono">Free browser tools for writers, students and editors</div></div>
+        <ul class="game-points">
+          <li>Sentence-level AI detection with a calibrated confidence score, perplexity and burstiness, and the patterns behind each flag</li>
+          <li>The humanizer locks every noun, name, number and quote, then reworks rhythm and wording under a detector-guided search</li>
+          <li>A server edition adds web plagiarism search, batch uploads and Claude-powered Deep scan</li>
+        </ul>
+        <div class="flinks"><a href="https://quillmark.terratalesmedia.world/" target="_blank" rel="noopener">quillmark.terratalesmedia.world ↗</a></div>
+      </div>
+    </article>
+
+    <article class="feature">
       <a class="shot" href="https://orbisarcana.org/" target="_blank" rel="noopener"><img src="images/orbis.jpg" alt="Orbis Arcana home page" loading="lazy" width="1280" height="800"></a>
       <div>
         <span class="tag">Live</span>
@@ -443,7 +464,7 @@ footer .wrap{padding-block:56px 40px}
       </div>
     </article>
 
-    <article class="feature">
+    <article class="feature flip">
       <a class="shot" href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener"><img src="images/akashic.jpg" alt="The Akashic Records public preview" loading="lazy" width="1280" height="800"></a>
       <div>
         <span class="tag">Public preview</span>
@@ -454,56 +475,51 @@ footer .wrap{padding-block:56px 40px}
       </div>
     </article>
 
-    <article class="feature flip" id="godsmacked">
-      <div class="shot game" role="img" aria-label="Godsmacked at a glance: 25 heroes from 12 mythologies, a 144-floor campaign and an endless Rift">
-        <div class="game-top"><span>Terratales Games</span><span>Unity 6</span></div>
-        <div class="game-title">Gods<br>macked</div>
-        <div class="game-stats">
-          <div><b>25</b><span>heroes</span></div>
-          <div><b>12</b><span>mythologies</span></div>
-          <div><b>144</b><span>campaign floors</span></div>
-          <div><b>∞</b><span>endless depths</span></div>
-        </div>
-        <div class="game-myths">Norse · Egyptian · Hindu · Japanese · Greek · Aztec · Celtic · Slavic · Persian · Chinese · Yoruba · Oceanic</div>
-      </div>
+    <article class="feature" id="godsmacked">
+      <a class="shot" href="https://terratalesmedia.world/samsara/godsmacked/#play" target="_blank" rel="noopener"><img src="images/godsmacked-cover.jpg" alt="Godsmacked cover art: mythological heroes from many pantheons fighting in a glowing rift" loading="lazy" width="1024" height="576" style="aspect-ratio:16/9"></a>
       <div>
-        <span class="tag">In production · 2027</span>
+        <span class="tag">Free web preview · Full release 2027</span>
         <h3>Godsmacked</h3>
         <p class="desc">An endless, procedurally generated 2D side-scrolling brawler. Pick from 25 gods and heroes across 12 mythologies, fight down the Rift solo or as a tag-team squad of three, and carry Glory, unlocks and lore between runs. A 12-realm campaign sits beside the endless mode, and there are no loot boxes.</p>
-        <div class="metric"><div class="big"><span class="hl">5</span></div><div class="mono">Platforms from one Unity 6 codebase: iPhone and iPad, Android, Windows, macOS and web</div></div>
+        <div class="metric"><div class="big"><span class="hl">25</span></div><div class="mono">Heroes from 12 mythologies, on iPhone, iPad, Android, Windows, macOS and web from one Unity 6 codebase</div></div>
         <ul class="game-points">
           <li>Characters, weapons and scenery painted at runtime by a custom SDF rasteriser, with painted whole-limb rigs for the launch cast</li>
           <li>Each hero has a weapon, a passive, 6 abilities and a skill tree; patrons, a forge, World Levels and in-run Ascension add depth</li>
           <li>Headless bot playtests across all 25 heroes check balance; Unity Gaming Services runs sign-in, cloud saves and a live leaderboard</li>
         </ul>
+        <div class="flinks"><a href="https://terratalesmedia.world/samsara/godsmacked/#play" target="_blank" rel="noopener">Play in your browser ↗</a></div>
       </div>
     </article>
   </section>
 
   <!-- BUILDS -->
   <section class="block" id="builds">
-    <div class="sec-head"><h2>Builds</h2><span class="mono">Samsara · 10 works</span></div>
-    <p class="sec-intro">Samsara is the Terratales workshop for tools and apps. TrueTap is open on GitHub and KineScale is my native macOS app; the rest are in development.</p>
+    <div class="sec-head"><h2>Builds</h2><span class="mono">Samsara · apps and tools</span></div>
+    <p class="sec-intro">Samsara is the Terratales workshop for apps and tools, most of them for the Mac. Talsted is live in the browser and TrueTap is open on GitHub; the rest are in development and taking early-access requests.</p>
     <div class="builds">
       <div class="card wide">
         <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
-          <div class="tags"><span>Open source</span><span>Kotlin</span><span>Android</span></div>
-          <h4>TrueTap Keyboard</h4>
-          <p>An Android keyboard with a learned touch model and word decoder that corrects fat-finger taps. Glide typing, GIFs, voice input and six languages, tuned for Pixel 9.</p>
-          <div class="metric" style="margin-top:4px"><div class="big"><span class="hl">6</span></div><div class="mono">Languages, plus glide and voice</div></div>
-          <code class="cmd">github.com/RedZero13/TrueTap-Keyboard/releases/latest</code>
-          <div class="flinks" style="margin-top:4px"><a href="https://github.com/RedZero13/TrueTap-Keyboard" target="_blank" rel="noopener">View on GitHub ↗</a><a href="https://github.com/RedZero13/TrueTap-Keyboard/releases/latest" target="_blank" rel="noopener">Latest release →</a></div>
+          <div class="tags"><span>In development</span><span>macOS 26+</span><span>Apple silicon</span></div>
+          <h4>KineScale</h4>
+          <p>Old footage, restored on your own Mac. A native macOS app that upscales, repairs and colourises photos and video, then lets you finish the edit in the same place. Every model runs on the Mac, so footage never leaves the machine.</p>
+          <ul class="game-points" style="margin-top:0">
+            <li>AI upscaling with Real-ESRGAN-family models, Apple Super Resolution or Lanczos</li>
+            <li>GFPGAN face reconstruction and DDColor colourisation</li>
+            <li>De-interlacing, temporal denoise and flicker suppression for tape and old film</li>
+          </ul>
+          <div class="flinks" style="margin-top:4px"><a href="https://terratalesmedia.world/samsara/kinescale/" target="_blank" rel="noopener">Request early access ↗</a></div>
         </div>
-        <a class="shot" href="https://github.com/RedZero13/TrueTap-Keyboard" target="_blank" rel="noopener"><img src="images/truetap.jpg" alt="TrueTap Keyboard repository on GitHub" loading="lazy" width="1280" height="800"></a>
+        <a class="shot" href="https://terratalesmedia.world/samsara/kinescale/" target="_blank" rel="noopener"><img src="images/kinescale.jpg" alt="KineScale page: Old footage, restored on your own Mac" loading="lazy" width="1280" height="800"></a>
       </div>
-      <div class="card"><div class="tags"><span>macOS app</span><span>On-device</span></div><h4>KineScale</h4><p>Upscale, restore, colourise and edit photos and video on your Mac. All processing stays on the device.</p><div class="stack">macOS · On-device AI</div></div>
-      <div class="card"><div class="tags"><span>In development</span></div><h4>Decanter</h4><p>Runs Windows and Android apps on Apple-silicon Macs.</p><div class="stack">macOS</div></div>
-      <div class="card"><div class="tags"><span>In development</span></div><h4>Inkwell</h4><p>A code editor for the Mac.</p><div class="stack">macOS · Developer tools</div></div>
-      <div class="card"><div class="tags"><span>In development</span></div><h4>Lumen</h4><p>A Mac companion app with a Chrome extension.</p><div class="stack">macOS · Chrome</div></div>
-      <div class="card"><div class="tags"><span>In development</span></div><h4>Tsundoku</h4><p>A reading library for the books you mean to get to.</p><div class="stack">Reading</div></div>
-      <div class="card"><div class="tags"><span>In development</span></div><h4>Talsted</h4><p>A website builder and CMS.</p><div class="stack">Web</div></div>
+      <a class="card" href="https://terratalesmedia.world/samsara/lumen/" target="_blank" rel="noopener"><div class="tags"><span>In development</span></div><h4>Lumen</h4><p>A Dynamic Island for the Mac notch, a menu-bar system monitor and a toolbox, plus a Chrome extension with YouTube enhancements and an SEO and AI-search readiness kit.</p><div class="stack">macOS · Chrome</div><span class="go">See Lumen ↗</span></a>
+      <a class="card" href="https://terratalesmedia.world/samsara/decanter/" target="_blank" rel="noopener"><div class="tags"><span>In development</span></div><h4>Decanter</h4><p>Run Windows programs and games and Android apps on your Mac, side by side with your Mac apps, from one library.</p><div class="stack">macOS</div><span class="go">See Decanter ↗</span></a>
+      <a class="card" href="https://talsted.terratalesmedia.world/" target="_blank" rel="noopener"><div class="tags"><span class="live">Live</span><span>No account needed</span></div><h4>Talsted</h4><p>A visual website builder with a content system built in. Design on a canvas that shows the real page, keep content structured, and publish a fast static site.</p><div class="stack">Web</div><span class="go">Open the editor ↗</span></a>
+      <a class="card" href="https://terratalesmedia.world/samsara/tsundoku/" target="_blank" rel="noopener"><div class="tags"><span>In development</span></div><h4>Tsundoku</h4><p>Read manga, watch anime and open EPUB and PDF books in one app, with sources you add as extensions from your own server or a GitHub repository.</p><div class="stack">macOS · Android</div><span class="go">See Tsundoku ↗</span></a>
+      <a class="card" href="https://github.com/RedZero13/TrueTap-Keyboard" target="_blank" rel="noopener"><div class="tags"><span class="live">Open source</span><span>Kotlin</span></div><h4>TrueTap Keyboard</h4><p>An Android keyboard with a learned touch model that corrects fat-finger taps. Glide typing, GIFs, voice and six languages, tuned for Pixel 9.</p><div class="stack">Android</div><span class="go">View on GitHub ↗</span></a>
+      <a class="card" href="https://terratalesmedia.world/samsara/inkwell/" target="_blank" rel="noopener"><div class="tags"><span>In development</span></div><h4>Inkwell</h4><p>A code editor for the Mac.</p><div class="stack">macOS · Developer tools</div><span class="go">See Inkwell ↗</span></a>
     </div>
   </section>
+
 
   <!-- WRITING -->
   <section class="block" id="writing">
