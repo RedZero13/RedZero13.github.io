@@ -14,6 +14,7 @@
 :root{
   --bg:#ffffff; --surface:#f3f5f8; --ink:#0d1117; --ink-2:#2b3240; --muted:#576072; --line:#dde2ea;
   --accent:#1d4ed8; --lime:#d7ff3c; --on-lime:#0d1117; --good:#15803d; --btn-bg:#0d1117; --btn-fg:#ffffff;
+  --game-bg:#160f24; --game-fg:#f3eefc; --game-glow:#ffb547;
   --f-display:"Archivo","Arial Narrow",ui-sans-serif,system-ui,sans-serif;
   --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -54,6 +55,7 @@ nav.links a:hover{color:var(--ink);text-decoration:none}
 .theme-btn svg{width:16px;height:16px}
 @media (max-width:820px){nav.links .hide-sm{display:none}}
 @media (max-width:520px){nav.links{gap:14px}nav.links .hide-xs{display:none}.brand{font-size:17px}}
+@media (max-width:420px){nav.links{gap:12px}.brand{font-size:15px}header.top .wrap{gap:10px}}
 
 /* Hero */
 .hero{padding-block:88px 56px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:48px;align-items:start}
@@ -134,6 +136,7 @@ h2{font-family:var(--f-display);font-weight:900;font-stretch:72%;text-transform:
 .feature{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:48px}
 .feature + .feature{border-top:1px solid var(--line)}
 .feature.flip .shot{order:2}
+.feature > *{min-width:0}
 .shot{display:block;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);max-width:100%}
 .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;transition:transform .5s ease}
 .shot:hover img{transform:scale(1.015)}
@@ -146,6 +149,18 @@ h2{font-family:var(--f-display);font-weight:900;font-stretch:72%;text-transform:
 .metric .big{font-size:clamp(36px,4.4vw,46px)}
 .metric .mono{margin-top:10px;line-height:1.55}
 .flinks{display:flex;gap:20px;margin-top:18px;font-size:16px;flex-wrap:wrap}
+.shot.game{background:var(--game-bg);color:var(--game-fg);min-height:340px;padding:clamp(18px,3vw,32px);display:flex;flex-direction:column;justify-content:space-between;gap:12px;border-color:var(--game-bg);position:relative;overflow:hidden}
+.shot.game::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--game-glow) 35%,transparent),transparent 55%);pointer-events:none}
+.shot.game > *{position:relative}
+.game-top{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.game-title{font-family:var(--f-display);font-weight:900;font-stretch:62%;text-transform:uppercase;font-size:clamp(48px,8vw,92px);line-height:.82;color:var(--game-glow)}
+.game-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;border-top:1px solid color-mix(in srgb,var(--game-fg) 25%,transparent);padding-top:12px}
+.game-stats b{display:block;font-family:var(--f-display);font-weight:800;font-stretch:75%;font-size:clamp(22px,3vw,32px);line-height:1}
+.game-stats span{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.game-myths{font-family:var(--f-mono);font-size:10.5px;line-height:1.6;opacity:.6}
+.game-points{margin:18px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.game-points li+li{margin-top:6px}
+@media (max-width:560px){.shot.game{min-height:0}.game-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:820px){.feature{grid-template-columns:1fr;gap:24px;padding-block:36px}.feature.flip .shot{order:0}.venture-intro{grid-template-columns:1fr}}
 
 /* Builds */
@@ -161,6 +176,24 @@ h2{font-family:var(--f-display);font-weight:900;font-stretch:72%;text-transform:
 code.cmd{display:block;font-family:var(--f-mono);font-size:12.5px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:var(--ink);overflow-x:auto;white-space:nowrap}
 @media (max-width:900px){.builds{grid-template-columns:repeat(2,minmax(0,1fr))}.card.wide{grid-column:span 2;grid-template-columns:1fr}}
 @media (max-width:560px){.builds{grid-template-columns:1fr}.card.wide{grid-column:span 1}}
+
+/* Novels */
+.books{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}
+.book{display:grid;grid-template-columns:120px minmax(0,1fr);gap:22px;align-items:stretch;border:1px solid var(--line);border-radius:var(--r);padding:18px;color:var(--ink);background:var(--bg);transition:border-color .2s}
+.book:hover{text-decoration:none;border-color:var(--ink)}
+.spine{aspect-ratio:2/3;border-radius:4px 8px 8px 4px;background:var(--game-bg);color:var(--game-fg);padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 6px 0 0 color-mix(in srgb,var(--game-fg) 12%,transparent)}
+.spine.alt{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.spine span{font-family:var(--f-display);font-weight:900;font-stretch:70%;text-transform:uppercase;font-size:20px;line-height:.95}
+.spine:not(.alt) span{color:var(--game-glow)}
+.spine small{font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.book-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.book-body .tags{display:flex;gap:6px;flex-wrap:wrap}
+.book-body .tags span{font-family:var(--f-mono);font-size:11px;padding:2px 8px;border-radius:999px;background:var(--surface);color:var(--ink-2)}
+.book h4{margin:2px 0 0;font-size:20px;font-weight:600}
+.book p{margin:0;color:var(--muted);font-size:15px}
+.book .go{margin-top:auto;color:var(--accent);font-size:15px}
+@media (max-width:820px){.books{grid-template-columns:1fr}}
+@media (max-width:420px){.book{grid-template-columns:88px minmax(0,1fr);gap:16px}.spine span{font-size:16px}}
 
 /* Skills */
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin-top:32px}
@@ -202,7 +235,7 @@ footer .wrap{padding-block:56px 40px}
       <a class="hide-xs" href="#work">Work</a>
       <a class="hide-xs" href="#ventures">Ventures</a>
       <a class="hide-sm" href="#builds">Builds</a>
-      <a class="hide-sm" href="#skills">Skills</a>
+      <a class="hide-sm" href="#writing">Novels</a>
       <a class="strong" href="Piyush_Banerjee_Resume.pdf" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>CV</a>
       <a class="strong hide-xs" href="https://www.linkedin.com/in/piyush-banerjee/" target="_blank" rel="noopener">LinkedIn</a>
@@ -227,7 +260,7 @@ footer .wrap{padding-block:56px 40px}
       </div>
       <p class="now"><span class="dot" aria-hidden="true"></span><span>Leading SEO for 18 clients · building Mimir and KineScale · EPGC in AI Products at IIT Kharagpur</span></p>
       <h1>Content that ranks.<span class="dim">Products that ship.</span></h1>
-      <p class="lede">I work where SEO, content strategy and AI meet. As <b>Manager, SEO (Content)</b> at <b>#ARM Worldwide</b> I lead search and content for 18 clients across fintech, insurance, D2C, ed-tech and media, winning Page 1 rankings and AI Overview placements while tracking brand citations across AI answer engines. Outside work I founded <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales Media</a> and build AI products like <a href="https://mimir.terratalesmedia.world/" target="_blank" rel="noopener">Mimir</a>, <a href="#builds">KineScale</a> and <a href="https://github.com/RedZero13/TrueTap-Keyboard" target="_blank" rel="noopener">TrueTap Keyboard</a>.</p>
+      <p class="lede">I work where SEO, content strategy and AI meet. As <b>Manager, SEO (Content)</b> at <b>#ARM Worldwide</b> I lead search and content for 18 clients across fintech, insurance, D2C, ed-tech and media, winning Page 1 rankings and AI Overview placements while tracking brand citations across AI answer engines. Outside work I founded <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales Media</a> and build AI products like <a href="https://mimir.terratalesmedia.world/" target="_blank" rel="noopener">Mimir</a>, <a href="#builds">KineScale</a>, <a href="https://github.com/RedZero13/TrueTap-Keyboard" target="_blank" rel="noopener">TrueTap Keyboard</a> and the mythology brawler <a href="#godsmacked">Godsmacked</a>.</p>
       <div class="btns">
         <a class="btn solid" href="Piyush_Banerjee_Resume.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download CV</a>
@@ -326,7 +359,7 @@ footer .wrap{padding-block:56px 40px}
         </div>
         <div class="item">
           <div class="logo" aria-hidden="true">AU</div>
-          <div><h4>Self-employed</h4><p class="role">Author, fiction and novels</p><div class="when">Nov 2019 to now</div></div>
+          <div><h4>Self-employed</h4><p class="role">Author, two novels including <a href="#writing">A Circle of Time</a></p><div class="when">Nov 2019 to now</div></div>
         </div>
         <details class="earlier">
           <summary class="mono">Earlier roles and internships · 7</summary>
@@ -375,7 +408,7 @@ footer .wrap{padding-block:56px 40px}
 
   <!-- VENTURES -->
   <section class="block" id="ventures">
-    <div class="sec-head"><h2>Platforms I'm building</h2><span class="mono">Terratales Media · 3 live</span></div>
+    <div class="sec-head"><h2>Platforms I'm building</h2><span class="mono">Terratales Media · 3 live · 1 game</span></div>
     <div class="venture-intro">
       <div>
         <p class="sec-intro" style="margin:0">Terratales is the media, entertainment and story-technology house I founded. Its tagline is "Stories rooted in the earth, branched out to every realm of the world." Each realm is a business line; the products below are the ones already live.</p>
@@ -418,6 +451,31 @@ footer .wrap{padding-block:56px 40px}
         <div class="flinks"><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">akashic.terratalesmedia.world ↗</a></div>
       </div>
     </article>
+
+    <article class="feature flip" id="godsmacked">
+      <div class="shot game" role="img" aria-label="Godsmacked at a glance: 25 heroes from 12 mythologies, a 144-floor campaign and an endless Rift">
+        <div class="game-top"><span>Terratales Games</span><span>Unity 6</span></div>
+        <div class="game-title">Gods<br>macked</div>
+        <div class="game-stats">
+          <div><b>25</b><span>heroes</span></div>
+          <div><b>12</b><span>mythologies</span></div>
+          <div><b>144</b><span>campaign floors</span></div>
+          <div><b>∞</b><span>endless depths</span></div>
+        </div>
+        <div class="game-myths">Norse · Egyptian · Hindu · Japanese · Greek · Aztec · Celtic · Slavic · Persian · Chinese · Yoruba · Oceanic</div>
+      </div>
+      <div>
+        <span class="tag">In production · 2027</span>
+        <h3>Godsmacked</h3>
+        <p class="desc">An endless, procedurally generated 2D side-scrolling brawler. Pick from 25 gods and heroes across 12 mythologies, fight down the Rift solo or as a tag-team squad of three, and carry Glory, unlocks and lore between runs. A 12-realm campaign sits beside the endless mode, and there are no loot boxes.</p>
+        <div class="metric"><div class="big"><span class="hl">5</span></div><div class="mono">Platforms from one Unity 6 codebase: iPhone and iPad, Android, Windows, macOS and web</div></div>
+        <ul class="game-points">
+          <li>Characters, weapons and scenery painted at runtime by a custom SDF rasteriser, with painted whole-limb rigs for the launch cast</li>
+          <li>Each hero has a weapon, a passive, 6 abilities and a skill tree; patrons, a forge, World Levels and in-run Ascension add depth</li>
+          <li>Headless bot playtests across all 25 heroes check balance; Unity Gaming Services runs sign-in, cloud saves and a live leaderboard</li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <!-- BUILDS -->
@@ -445,6 +503,33 @@ footer .wrap{padding-block:56px 40px}
     </div>
   </section>
 
+  <!-- WRITING -->
+  <section class="block" id="writing">
+    <div class="sec-head"><h2>Novels</h2><span class="mono">Author · since 2019 · 2 novels</span></div>
+    <p class="sec-intro">I've written fiction since 2019, alongside the day job. I've written two novels, published on Amazon and Webnovel.</p>
+    <div class="books">
+      <a class="book" href="https://www.webnovel.com/book/a-circle-of-time_15436161205393705" target="_blank" rel="noopener">
+        <div class="spine" aria-hidden="true"><span>A Circle<br>of Time</span><small>Piyush Banerjee</small></div>
+        <div class="book-body">
+          <div class="tags"><span>Novel</span><span>Webnovel</span></div>
+          <h4>A Circle of Time</h4>
+          <p>Serialised on Webnovel, where readers follow it chapter by chapter.</p>
+          <span class="go">Read on Webnovel ↗</span>
+        </div>
+      </a>
+      <a class="book" href="https://www.amazon.in/stores/Piyush-Banerjee/author/B085JRM13V" target="_blank" rel="noopener">
+        <div class="spine alt" aria-hidden="true"><span>Piyush<br>Banerjee</span><small>Author page</small></div>
+        <div class="book-body">
+          <div class="tags"><span>Kindle</span><span>Amazon</span></div>
+          <h4>Books on Amazon</h4>
+          <p>My Amazon author store, with my published books in Kindle and print editions.</p>
+          <span class="go">Visit the author store ↗</span>
+        </div>
+      </a>
+    </div>
+    <p class="mono" style="margin-top:16px;text-transform:none;letter-spacing:0">More of my writing: <a href="https://www.webnovel.com/profile/4303938656" target="_blank" rel="noopener">Webnovel profile ↗</a></p>
+  </section>
+
   <!-- SKILLS -->
   <section class="block" id="skills">
     <div class="sec-head"><h2>Skills &amp; certifications</h2><span class="mono">Search · Content · Video · AI</span></div>
@@ -454,7 +539,7 @@ footer .wrap{padding-block:56px 40px}
         <div class="skill-group"><div class="mono">Content</div><div class="list"><span>Content strategy</span><span>Web content</span><span>Copywriting</span><span>Technical writing</span><span>Business writing</span><span>News writing</span><span>Fiction</span><span>CMS</span></div></div>
         <div class="skill-group"><div class="mono">Marketing</div><div class="list"><span>Digital strategy</span><span>Media strategy</span><span>Social media strategy</span><span>YouTube and Instagram</span><span>Search and paid social ads</span><span>Influencer marketing</span><span>Email marketing</span><span>Brand management</span></div></div>
         <div class="skill-group"><div class="mono">Video &amp; design</div><div class="list"><span>Pre-production</span><span>Video editing</span><span>Post-production</span><span>Premiere Pro</span><span>Final Cut Pro</span><span>Photoshop ✓</span><span>Illustrator ✓</span><span>Blender</span><span>3D modelling</span></div></div>
-        <div class="skill-group"><div class="mono">AI &amp; product</div><div class="list"><span>Prompt engineering</span><span>Vibe coding</span><span>AI content workflows</span><span>Product management</span><span>Product launch</span><span>Mac apps</span><span>Kotlin / Android</span><span>HTML</span></div></div>
+        <div class="skill-group"><div class="mono">AI &amp; product</div><div class="list"><span>Prompt engineering</span><span>Vibe coding</span><span>AI content workflows</span><span>Product management</span><span>Product launch</span><span>Mac apps</span><span>Kotlin / Android</span><span>Unity 6 / C#</span><span>Game design</span><span>HTML</span></div></div>
         <div class="skill-group"><div class="mono">Ways of working</div><div class="list"><span>Team management</span><span>Six Sigma</span><span>Agile and Scrum</span><span>Data-driven decisions</span><span>Business analytics</span><span>Excel ✓</span><span>Word ✓</span></div></div>
         <p class="note mono">✓ Passed LinkedIn skill assessment or listed with an assessment</p>
       </div>
@@ -465,9 +550,7 @@ footer .wrap{padding-block:56px 40px}
           <li><div><b>Six Sigma White Belt</b><small>The Council for Six Sigma Certification · ID cILTBrCmHU</small></div><span class="mono">Apr 2026</span></li>
           <li><div><b>Content Marketing Certification</b><small>HubSpot Academy · valid to Apr 2028</small></div><span class="mono">Mar 2026</span></li>
           <li><div><b>AI for Writing and Communicating</b><small>Google</small></div><span class="mono">Mar 2026</span></li>
-          <li><div><b>Content Marketing Principles for Business</b><small>Semrush</small></div><span class="mono">Oct 2025</span></li>
           <li><div><b>CopilotXcelerate: AI Power for MBA</b><small>upGrad</small></div><span class="mono">May 2025</span></li>
-          <li><div><b>SEO</b> and <b>Digital Marketing</b><small>HubSpot Academy · two certifications</small></div><span class="mono">Apr 2025</span></li>
           <li><div><b>Introduction to Intellectual Property Rights</b><small>upGrad</small></div><span class="mono">Mar 2025</span></li>
         </ul>
         <details class="earlier">
@@ -493,6 +576,7 @@ footer .wrap{padding-block:56px 40px}
       <li><span class="mono">Work</span><span>Four months into the Manager role at #ARM Worldwide, running SEO and content for 18 accounts.</span></li>
       <li><span class="mono">Study</span><span>Working through the AI products programme at IIT Kharagpur, which runs to March 2027.</span></li>
       <li><span class="mono">Build</span><span>Mimir, a media discovery platform, and KineScale, an on-device photo and video app for the Mac.</span></li>
+      <li><span class="mono">Game</span><span>Painting the Godsmacked hero cast and preparing a web demo and mobile betas ahead of the 2027 launch.</span></li>
       <li><span class="mono">Interest</span><span>How search changes as AI answer engines take over more queries.</span></li>
     </ul>
   </section>
